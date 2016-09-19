@@ -1,0 +1,12 @@
+{
+  "name": "wsuwp-cost-of-attendance-calculator",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/washingtonstateuniversity/WSUWP-Plugin-Cost-Of-Attendance-Calculator"
+  },
+  "devDependencies": {
+    "grunt": "~1.0.1",
+    "grunt-phpcs": "^0.4.0"
+  }
+}
