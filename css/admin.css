@@ -1,0 +1,41 @@
+#coac-estimates input,
+.lookup-table-inputs input {
+	width: 100%;
+}
+
+.cost-and-aid-inputs,
+.lookup-table-inputs {
+	display: table;
+}
+
+.cost-and-aid-inputs {
+	width: 50%;
+}
+
+.lookup-table-inputs {
+	width: 100%;
+}
+
+.cost-and-aid-inputs .row,
+.lookup-table-inputs .row {
+	display: table-row;
+}
+
+.cost-and-aid-inputs .row div,
+.lookup-table-inputs .row div {
+	display: table-cell;
+	padding: 0.5em;
+}
+
+.cost-and-aid-inputs p + .row div {
+	padding-top: 0;
+}
+
+.cost-and-aid-inputs .row div:last-of-type,
+.lookup-table-inputs .row div:last-of-type {
+	padding-right: 0;
+}
+
+.cost-and-aid-inputs .label {
+	text-align: right;
+}
