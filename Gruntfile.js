@@ -1,20 +1,55 @@
-module.exports = function(grunt) {
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+module.exports = function( grunt ) {
+    grunt.initConfig( {
+        pkg: grunt.file.readJSON( "package.json" ),
 
         phpcs: {
             plugin: {
-                src: './'
+                src: [ "./*.php", "./includes/*.php" ]
             },
             options: {
                 bin: "vendor/bin/phpcs --extensions=php --ignore=\"*/vendor/*,*/node_modules/*\"",
                 standard: "phpcs.ruleset.xml"
             }
-        }
-    });
+        },
 
-    grunt.loadNpmTasks('grunt-phpcs');
+        jscs: {
+            scripts: {
+                src: [ "Gruntfile.js", "js/*.js" ],
+                options: {
+                    preset: "jquery",
+                    maximumLineLength: 250
+                }
+            }
+        },
+
+        jshint: {
+            gruntScript: {
+                src: [ "Gruntfile.js" ],
+                options: {
+                    curly: true,
+                    eqeqeq: true,
+                    noarg: true,
+                    quotmark: "double",
+                    undef: true,
+                    unused: false,
+                    node: true // Define globals available when running in Node.
+                }
+            }
+        },
+
+        uglify: {
+            scripts: {
+                src: "js/scripts.js",
+                dest: "js/scripts.min.js"
+            }
+        }
+    } );
+
+    grunt.loadNpmTasks( "grunt-jscs" );
+    grunt.loadNpmTasks( "grunt-contrib-jshint" );
+    grunt.loadNpmTasks( "grunt-contrib-uglify" );
+    grunt.loadNpmTasks( "grunt-phpcs" );
 
     // Default task(s).
-    grunt.registerTask('default', ['phpcs']);
+    grunt.registerTask( "default", [ "phpcs", "jscs", "jshint", "uglify" ] );
 };
