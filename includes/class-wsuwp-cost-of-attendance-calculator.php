@@ -243,7 +243,7 @@ class WSUWP_Cost_Of_Attendance_Calculator {
 
 		add_meta_box(
 			'coac-lookup-table_with-dependents',
-			'Lookup Table for Independends with Dependents',
+			'Lookup Table for Independents with Dependents',
 			array( $this, 'display_with_dependents_lookup_table' ),
 			null,
 			'normal'
