@@ -14,7 +14,7 @@ module.exports = function( grunt ) {
 
         jscs: {
             scripts: {
-                src: [ "Gruntfile.js", "js/*.js" ],
+                src: [ "Gruntfile.js", "js/calculator.js" ],
                 options: {
                     preset: "jquery",
                     maximumLineLength: 250
@@ -39,8 +39,8 @@ module.exports = function( grunt ) {
 
         uglify: {
             scripts: {
-                src: "js/scripts.js",
-                dest: "js/scripts.min.js"
+                src: "js/calculator.js",
+                dest: "js/calculator.min.js"
             }
         }
     } );
