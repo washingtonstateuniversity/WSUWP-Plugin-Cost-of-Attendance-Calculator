@@ -96,6 +96,8 @@ class WSUWP_Cost_Of_Attendance_Calculator {
 		add_filter( 'get_user_option_screen_layout_' . $this->post_type_slug, array( $this, 'screen_layout' ) );
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_boxes' ) );
 		add_action( 'save_post_' . $this->post_type_slug, array( $this, 'save' ), 10, 2 );
+		add_shortcode( 'wsu_coa_calculator', array( $this, 'display_wsu_coa_calculator' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 	}
 
 	/**
@@ -491,6 +493,66 @@ class WSUWP_Cost_Of_Attendance_Calculator {
 				// Each piece of meta is registered with sanitization.
 				update_post_meta( $post_id, $key, $_POST[ $key ] );
 			}
+		}
+	}
+
+	/**
+	 * Display the calculator form for browsing scholarships.
+	 */
+	public function display_wsu_coa_calculator() {
+
+		ob_start();
+		include_once( __DIR__ . '/form.html' );
+		/*?>
+		<div class="coac-step-one">
+			<p>Do you plan to apply for financial aid?<br>
+				<label><input type="radio" name="rb_financialaid" value="0">Yes</label>
+				<label><input type="radio" name="rb_financialaid" value="1">No</label>
+			</p>
+
+			<p>How old are you?<br />
+				<input id="txt_age" type="text" value="" size="6" maxlength="4">
+			</p>
+
+			<p>Residency<br />
+				<label><input type="radio" name="rb_residencystatus" value="0">Eligible for in-state tuition</label>
+				<label><input type="radio" name="rb_residencystatus" value="1">Eligible for out-of-state tuition</label>
+			</p>
+		</div>
+		<div class="coac-buttons">
+			<button name="previous">Previous</button> <button name="continue">Continue</button>
+		</div>
+		<?php*/
+		$html = ob_get_contents();
+
+		ob_end_clean();
+
+		return $html;
+	}
+
+	/**
+	 * Enqueue the scripts and styles used on the front end.
+	 */
+	public function enqueue_scripts() {
+		$post = get_post();
+
+		if ( isset( $post->post_content ) && has_shortcode( $post->post_content, 'wsu_coa_calculator' ) ) {
+			wp_enqueue_style( 'coa-calculator', plugins_url( 'css/calculator.css', dirname( __FILE__ ) ), array( 'spine-theme' ) );
+			wp_enqueue_script( 'coa-calculator', plugins_url( 'js/calculator.min.js', dirname( __FILE__ ) ), array( 'jquery' ), false, true );
+
+			$annual_data = get_posts( array( 'posts_per_page' => 1, 'post_type' => $this->post_type_slug ) );
+			$recent_year = $annual_data[0];
+
+			$coac_data = array(
+				'figuresFrom' => $recent_year->post_title,
+				'inState' => wp_json_encode( get_post_meta( $recent_year->ID, 'in_state', true ) ),
+				'outOfState' => wp_json_encode( get_post_meta( $recent_year->ID, 'out_of_state', true ) ),
+				'dependent' => wp_json_encode( get_post_meta( $recent_year->ID, 'dependent', true ) ),
+				'independent' => wp_json_encode( get_post_meta( $recent_year->ID, 'independent', true ) ),
+				'withDependents' => wp_json_encode( get_post_meta( $recent_year->ID, 'with_dependents', true ) ),
+			);
+
+			wp_localize_script( 'coa-calculator', 'annualData', $coac_data );
 		}
 	}
 }

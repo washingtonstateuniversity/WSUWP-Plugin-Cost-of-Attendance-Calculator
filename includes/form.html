@@ -1,0 +1,255 @@
+<div class="npc">
+
+	<!-- npc-step-0 -->
+	<div id="npc-step-0" class="npc-step fields">
+		<p><strong>Please read.</strong> This calculator is intended to provide <em>estimated</em> net price information (defined as estimated cost of attendance - including tuition and required fees, books and supplies, room and board (meals), and other related expenses - minus estimated grant and scholarship aid) to current and prospective students and their families based on what similar students paid in a previous year.</p>
+		<p>By clicking below, I acknowledge that the estimate provided using this calculator does not represent a final determination, or actual award, of financial assistance, or a final net price; it is an estimate based on cost of attendance and financial aid provided to students in a previous year. Cost of attendance and financial aid availability change year to year. The estimates shall not be binding on the Secretary of Education, the institution of higher education, or the State.</p>
+		<p>Students must complete the Free Application for Federal Student Aid (FAFSA) in order to be eligible for, and receive, an actual financial aid award that includes Federal grant, loan, or work-study assistance. For more information on applying for Federal student aid, go to <a href="http://www.fafsa.ed.gov/" target="_blank">http://www.fafsa.ed.gov/</a></p>
+		<p><strong>Note:</strong> Any information that you provide on this site is confidential. The Net Price Calculator does not store your responses or ask for personal identifying information of any kind.</p>
+		<p style="text-align:center;">
+			<a class="npc-button next" href="#">I Agree</a>
+		</p>
+	</div>
+
+	<!-- npc-step-1 -->
+	<div id="npc-step-1" class="npc-step hidden">
+		<h4>Step 1</h4>
+		<p>Please provide the requested information. Your responses will be used to calculate an estimated amount that students like you paid - after grant aid and scholarships but before student loans - to attend this institution in a given year.</p>
+
+		<div class="fields">
+			<p class="question">Do you plan to apply for financial aid?</p>
+			<ul>
+				<li><label><input type="radio" name="financial-aid" value="0" /> Yes</label></li>
+				<li><label><input type="radio" name="financial-aid" value="1" /> No</label></li>
+			</ul>
+
+			<p class="question">How old are you?</p>
+			<input type="text" name="age" value="" size="3" maxlength="3" />
+
+			<p class="question">Residency:</p>
+			<ul>
+				<li><label><input type="radio" name="residency" value="0" /> Eligible for in-state tuition</label></li>
+				<li><label><input type="radio" name="residency" value="1" /> Eligible for out-of-state tuition</label></li>
+			</ul>
+
+			<table>
+				<tr>
+					<td><a class="npc-button previous" href="#">&laquo; Previous</a></td>
+					<td><a class="npc-button next" href="#">Continue &raquo;</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- npc-step-2 -->
+	<div id="npc-step-2" class="npc-step hidden">
+		<h4>Step 2</h4>
+		<p>Please provide the following information and then click Continue.</p>
+
+		<div class="fields">
+			<div id="marital-status">
+				<p class="question">Are you (the student) married?</p>
+				<p class="description">Answer "yes" if you are separated but not divorced.</p>
+				<ul>
+					<li><label><input type="radio" name="maritalstatus" value="1" /> Yes</label></li>
+					<li><label><input type="radio" name="maritalstatus" value="0" /> No</label></li>
+				</ul>
+			</div>
+
+			<p class="question">Are you (the student) the primary source of financial support for any children?</p>
+			<ul>
+				<li><label><input type="radio" name="numberofchildren" value="1" /> Yes</label></li>
+				<li><label><input type="radio" name="numberofchildren" value="0" /> No</label></li>
+			</ul>
+
+			<table>
+				<tr>
+					<td><a class="npc-button previous" href="#">&laquo; Previous</a></td>
+					<td><a class="npc-button next" href="#">Continue &raquo;</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- npc-step-3 -->
+	<div id="npc-step-3" class="npc-step hidden">
+		<h4>Step 3</h4>
+		<p>For the purposes of this calculator, an independent student is one who is at least 24 years old, married, and/or has legal dependents other than a spouse (e.g., children). A student who does not meet any of the above criteria is considered dependent.</p>
+		<p>Based on the information you provided in previous steps, your dependency status is estimated to be <strong><span class="dependent">Dependent</span><span class="independent">Independent</span></strong>. Please provide the following information and then click Continue.</p>
+
+		<div class="fields">
+			<p class="question">How many people are in your family's household?</p>
+			<p class="description hidden dependent">Count yourself, your parent(s), and your parents' other dependent children.</p>
+			<p class="description hidden independent no-children" id="note-family">Count yourself and your spouse (if applicable).</p>
+			<p class="description hidden independent children" id="note-family-w-children">Count yourself, your spouse (if applicable), and any dependent children.</p>
+
+			<ul>
+				<li class="hidden independent no-children" id="option-family"><label><input type="radio" name="numinfamily" value="1" /> One</label></li>
+				<li><label><input type="radio" name="numinfamily" value="2" /> Two</label></li>
+				<div class="hidden dependent children" id="option-family-w-children">
+					<li><label><input type="radio" name="numinfamily" value="3" /> Three</label></li>
+					<li><label><input type="radio" name="numinfamily" value="4" /> Four</label></li>
+					<li><label><input type="radio" name="numinfamily" value="5" /> Five</label></li>
+					<li><label><input type="radio" name="numinfamily" value="6" /> Six or more</label></li>
+				</div>
+			</ul>
+
+			<p class="question">Of the number in your family above, how many will be in college next year?</p>
+			<p class="description hidden dependent">Count yourself and your siblings; do not count your parents.</p>
+
+			<ul class="hidden dependent">
+				<li><label><input type="radio" name="numincollege" value="One child|1" /> One child</label></li>
+				<li><label><input type="radio" name="numincollege" value="Two children|2" /> Two children</label></li>
+				<li><label><input type="radio" name="numincollege" value="Three or more children|3" /> Three or more children</label></li>
+			</ul>
+
+			<ul class="hidden independent">
+				<li><label><input type="radio" name="numincollege" value="One|1" /> One</label></li>
+				<li class="hidden no-children"><label><input type="radio" name="numincollege" value="Two|2" /> Two</label></li>
+				<li class="hidden children"><label><input type="radio" name="numincollege" value="Two or more|2" /> Two or more</label></li>
+			</ul>
+
+			<p class="question">What is your annual household income after taxes?</p>
+
+			<ul class="description hidden dependent">
+				<li>Include income earned by yourself and your parent(s).</li>
+				<li>Include income from work, child support, and other sources.</li>
+				<li>If your parent is single, separated, or divorced, include the income for the parent with whom you live.</li>
+				<li>If the parent with whom you live is remarried, include both your parent's income and his/her spouse's income.</li>
+			</ul>
+
+			<p class="description hidden independent">Include income from work, child support, and other sources; if you are married, include your spouse's income.</p>
+
+			<ul>
+				<li><label><input type="radio" name="householdincome" value="0" /> Less than $30,000</label></li>
+				<li><label><input type="radio" name="householdincome" value="1" /> Between $30,000 - $39,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="2" /> Between $40,000 - $49,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="3" /> Between $50,000 - $59,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="4" /> Between $60,000 - $69,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="5" /> Between $70,000 - $79,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="6" /> Between $80,000 - $89,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="7" /> Between $90,000 - $99,999</label></li>
+				<li><label><input type="radio" name="householdincome" value="8" /> Above $99,999</label></li>
+			</ul>
+
+			<table>
+				<tr>
+					<td><a class="npc-button previous" href="#">&laquo; Previous</a></td>
+					<td><a class="npc-button next" href="#">Continue &raquo;</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- div with summary data -->
+	<div id="npc-step-4" class="npc-step hidden">
+		<p>Review the information you have provided. You can click Modify to return to Step 1 and edit this information, or if you are happy with the current selections, click Continue to receive your <strong>estimated</strong> net price.</p>
+
+		<div class="fields">
+			<div id="dv_summary" class="summarytable"></div>
+			<table>
+				<tr>
+					<td><a class="npc-button modify" href="#">Modify</a></td>
+					<td><a class="npc-button next" href="#">Continue &raquo;</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<!-- npc-step-6 -->
+	<div id="npc-step-5" class="npc-step hidden">
+		<p>Based on the information you have provided, the following calculations represent the average net price of attendance that students similar to you paid in the given year:</p>
+
+		<div class="fields">
+			<h4>Academic Year: <span class="figures-from"></span></h4>
+
+			<table class="npc-table estimates">
+				<tr>
+					<td>
+						<p>Estimated tuition and fees</p>
+					</td>
+					<td>
+						<p id="s_etf">$00,000</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p><span>+</span> Estimated room and board charges</p>
+						<p class="description">(Includes rooming accommodations and meals)</p>
+					</td>
+					<td>
+						<p id="s_erb">$00,000</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p><span>+</span> Estimated cost of books and supplies</p>
+					</td>
+					<td>
+						<p id="s_ebs">$00,000</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p><span>+</span> Estimated other expenses</p>
+						<p class="description">(Personal expenses, transportation, etc.)</p>
+					</td>
+					<td>
+						<p id="s_eo">$00,000</p>
+					</td>
+				</tr>
+			</table>
+
+			<hr />
+
+			<table class="npc-table estimates">
+				<tr>
+					<td>
+						<p>Estimated total cost of attendance:</p>
+					</td>
+					<td>
+						<p id="s_etpoa">$00,000</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p><span>-</span> Estimated total grant aid</p>
+						<p class="description">(Includes both merit and need based grant and scholarship aid from Federal, State, or Local Governments, or the Institution)</p>
+					</td>
+					<td>
+						<p id="s_etga">$00,000</p>
+					</td>
+				</tr>
+			</table>
+
+			<hr />
+
+			<table class="npc-table estimates">
+				<tr>
+					<td>
+						<p><strong>Estimated Net Price After Grants and Scholarships</strong></p>
+					</td>
+					<td>
+						<p id="s_enp">$00,000</p>
+					</td>
+				</tr>
+			</table>
+
+			<p class="crimson-er-text">This institution requires that full-time, first-time students live on-campus or in institutionally controlled housing.</p>
+			<p>Grants and scholarships do not have to be repaid. Some students also qualify for student loans to assist in paying this net price; however, student loans do have to be repaid.</p>
+
+			<table>
+				<tr>
+					<td><a class="npc-button previous" href="#">&laquo; Previous</a></td>
+					<td><a class="npc-button start-over" href="#">Start Over</a></td>
+				</tr>
+			</table>
+
+			<p><strong>Please Note:</strong> The estimates above apply to <strong>full-time, first-time degree/certificate-seeking undergraduate students</strong> only. Also, this estimate does not take into account outside or private donor scholarships, and third party guarantees, and/or waivers. Plus, the estimated price for room and board reflects an average WSU-Pullman student’s traditional campus housing and dining charges. Costs may differ depending on choices made for the academic year.</p>
+			<p>These estimates do not represent a final determination, or actual award, of financial assistance or a final net price; they are only estimates based on cost of attendance and financial aid provided to students in 2014-15. Cost of attendance and financial aid availability change year to year. These estimates shall not be binding on the Secretary of Education, the institution of higher education, or the State.</p>
+			<p>For more information about Washington State University’s estimated Cost of Attendance for the 2016-2017 academic year, the types of aid available to students, and the financial aid process, please visit the Student Financial Services website at financialaid.wsu.edu.</p>
+			<p>Not all students receive financial aid. In 2014-15, 72% of our full-time students enrolling for college for the first time received grant/scholarship aid. Students may also be eligible for student loans and work-study. Students must complete the Free Application for Federal Student Aid (FAFSA) in order to determine their eligibility for Federal financial aid that includes Federal grant, loan, or work-study assistance. For more information on applying for Federal student aid, go to <a href="http://www.fafsa.ed.gov/" target="_blank">http://www.fafsa.ed.gov/</a>. Completing the Free Application for Federal Student Aid (FAFSA) is the first step in applying for financial aid assistance and in determining what federal funding could possibly be available to pay for college.</p>
+		</div>
+	</div>
+
+</div>

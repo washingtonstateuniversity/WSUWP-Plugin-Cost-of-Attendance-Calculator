@@ -1,0 +1,71 @@
+.npc .hidden {
+	display: none; /* Just to be safe */
+}
+
+.npc .fields {
+	background: #f3f3f3;
+	padding: 2rem;
+}
+
+.npc .fields .question {
+	font-weight: bold;
+	padding-bottom: 0;
+}
+
+.npc .fields .description,
+.npc .fields .description li,
+.npc .fields label {
+	font-size: 14px;
+	font-weight: normal;
+	padding-bottom: 0;
+}
+
+.npc .fields .description {
+	font-style: italic;
+}
+
+.npc ul {
+	list-style: none;
+	padding: 1rem 2rem;
+}
+
+.npc input[type="text"] {
+	margin: 1rem 2rem;
+}
+.npc-table {
+	width: 100%;
+}
+
+.summary td:first-child {
+	font-weight: bold;
+	width: 50%;
+}
+
+.estimates td:first-child {
+	width: 75%;
+}
+
+.estimates p {
+	padding-bottom: 0;
+}
+
+.estimates td:first-child p {
+	padding-left: 1.5rem;
+}
+
+.estimates tr:first-child td:first-child p {
+	padding-left: 0;
+}
+
+.estimates td:last-child {
+	text-align: right;
+}
+
+.estimates td span {
+	margin-left: -1rem;
+	position: absolute;
+}
+
+.estimates:nth-of-type(3) {
+    margin-bottom: 3rem;
+}
