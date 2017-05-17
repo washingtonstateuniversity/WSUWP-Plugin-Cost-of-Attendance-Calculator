@@ -1,4 +1,4 @@
-( function( $, annualData ) {
+( function( $ ) {
 
 	"use strict";
 
@@ -510,7 +510,7 @@
 	// Handle form button clicks.
 	$( document ).ready( function() {
 
-		$( ".figures-from" ).html( annualData.figuresFrom );
+		$( ".figures-from" ).html( '2014-2015' ); // This will eventually be dynamic.
 
 		$( ".npc-button" ).click( function( e ) {
 			e.preventDefault();
@@ -542,4 +542,4 @@
 			}
 		} );
 	} );
-}( jQuery, annualData ) );
+}( jQuery ) );
